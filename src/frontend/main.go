@@ -146,7 +146,7 @@ func main() {
 	var handler http.Handler = r
 	handler = &logHandler{log: log, next: handler} // add logging
 	handler = ensureSessionID(handler)             // add session ID
-	handler = &ochttp.Handler{                     // add opencensus instrumentation
+	handler = &ochttp.Handler{                     // add opencensus instrumentation.
 		Handler:     handler,
 		Propagation: &b3.HTTPFormat{}}
 
